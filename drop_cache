@@ -1,0 +1,15 @@
+#!/bin/bash
+while :
+do
+	sync
+	echo 3 >/proc/sys/vm/drop_caches
+	if [ $? -eq 0 ];then
+	echo "successfully flashed caches"
+	else 
+		echo "failed"
+	fi
+	/etc/init.d/serverSpeeder restart
+	free -m 
+	sleep 1000
+	clear 
+done
