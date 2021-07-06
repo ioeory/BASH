@@ -12,7 +12,7 @@ check_status(){
     if [ $? -eq 0 ];then
          echo "$(date -d today +"%Y%m%d %H:%M:%S")-设备通信正常"|tee -a $LOG
     else
-        echo "$(date -d today +"%Y%m%d %H:%M:%S")-设备无法通信！将再次尝试……" 
+        echo "$(date -d today +"%Y%m%d %H:%M:%S")-设备无法通信！将再次尝试……" |tee -a $LOG
         sleep $TTO
         dst_check
         if [ $? -eq 0 ];then
